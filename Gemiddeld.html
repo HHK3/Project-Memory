@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Joël Lakhai | Project Memory</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" >
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet3.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Joël Lakhai | Project Memory | Social Media</h1>
+            <audio autoplay loop  src="media/achtergrond.mp3" id="achtergrond"></audio>
+        </header>
+
+        <section class="score-panel">
+          <h2 id="no">Nothin...</h2>
+        	<ul class="sterren">
+        		<li><i class="fas fa-star"></i></li>
+        		<li><i class="fas fa-star"></i></li>
+        		<li><i class="fas fa-star"></i></li>
+        	</ul>
+
+        	<span class="stap"><span class="stappen">0</span> Stap(pen)</span>
+
+            <div class="timer">
+            </div>
+
+            <a href="index.html">
+              <div class="stop">
+                <i class="fas fa-times"></i>
+              </div>
+            </a>
+            <div class="geluid">
+        		    <i class="fas fa-music" id="mute"></i>
+        	</div>
+
+        </section>
+
+        <ul class="deck" id="kaart-deck">
+            <li class="kaart" data-value="1">
+                <i class="fab fa-facebook-square"></i>
+            </li>
+            <li class="kaart" data-value="2">
+                <i class="fab fa-youtube"></i>
+            </li>
+            <li class="kaart match" data-value="3">
+                <i class="fab fa-whatsapp"></i>
+            </li>
+            <li class="kaart" data-value="4">
+                <i class="fab fa-pinterest"></i>
+            </li>
+            <li class="kaart" data-value="5">
+                <i class="fab fa-snapchat-ghost"></i>
+            </li>
+            <li class="kaart match" data-value="3">
+                <i class="fab fa-whatsapp"></i>
+            </li>
+            <li class="kaart" data-value="6">
+                <i class="fab fa-instagram"></i>
+            </li>
+            <li class="kaart" data-value="7">
+                <i class="fab fa-twitter"></i>
+            </li>
+            <li class="kaart" data-value="1">
+                <i class="fab fa-facebook-square"></i>
+            </li>
+            <li class="kaart" data-value="8">
+                <i class="fab fa-twitch"></i>
+            </li>
+            <li class="kaart" data-value="6">
+                <i class="fab fa-instagram"></i>
+            </li>
+            <li class="kaart" data-value="8">
+                <i class="fab fa-twitch"></i>
+            </li>
+            <li class="kaart open show" data-value="4">
+                <i class="fab fa-pinterest"></i>
+            </li>
+            <li class="kaart" data-value="7">
+                <i class="fab fa-twitter"></i>
+            </li>
+            <li class="kaart" data-value="2">
+                <i class="fab fa-youtube"></i>
+            </li>
+            <li class="kaart" data-value="5">
+                <i class="fab fa-snapchat-ghost"></i>
+            </li>
+        </ul>
+
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Gefeliciteerd! 🎉</h2>
+
+                <div class="content-1">
+                    Gefeliciteerd! Je hebt gewonnen! 🎉🎉
+                </div>
+                <div class="content-2">
+                    <p>Je hebt <span id=laatsteStap> </span> stappen gezet </p>
+                    <p>in <span id=totaleTijd> </span> </p>
+                    <p>Beoordeling:  <span id=starRating></span></p>
+                </div>
+                <button id="opnieuw-spelen" onclick="opnieuwSpelen()">
+                    Opnieuw Spelen
+                </button>
+
+                <button id="hoofdMenu" onclick="window.location.href='index.html'">
+                    Keer terug naar hoofdmenu
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="Gemiddeld.js"></script>
+</body>
+</html>

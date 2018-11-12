@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Joël Lakhai | Project Memory</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet2.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Joël Lakhai | Project Memory | Merken</h1>
+            <audio autoplay loop  src="media/achtergrond3.mp3" id="achtergrond"></audio>
+        </header>
+
+        <section class="score-panel">
+          <h2 id="no">Nothin...</h2>
+        	<ul class="sterren">
+        		<li><i class="fas fa-star"></i></li>
+        		<li><i class="fas fa-star"></i></li>
+        		<li><i class="fas fa-star"></i></li>
+        	</ul>
+
+        	<span class="stap"><span class="stappen">0</span> Stap(pen)</span>
+
+            <div class="timer">
+            </div>
+            <a href="index.html">
+            <div class="stop">
+            <i class="fas fa-times"></i>
+          </div>
+        </a>
+            <div class="geluid">
+                <i class="fas fa-music" id="mute"></i>
+          </div>
+        </section>
+
+        <ul class="deck" id="kaart-deck">
+            <li class="kaart" data-value="google">
+                <i class="fab fa-google"></i>
+            </li>
+            <li class="kaart" data-value="dropbox">
+                <i class="fab fa-dropbox"></i>
+            </li>
+            <li class="kaart match" data-value="github">
+                <i class="fab fa-github"></i>
+            </li>
+            <li class="kaart" data-value="apple" >
+                <i class="fab fa-apple"></i>
+            </li>
+            <li class="kaart" data-value="drupal">
+                <i class="fab fa-drupal"></i>
+            </li>
+            <li class="kaart match" data-value="github">
+                <i class="fab fa-github"></i>
+            </li>
+            <li class="kaart" data-value="linux">
+                <i class="fab fa-linux"></i>
+            </li>
+            <li class="kaart" data-value="windows">
+                <i class="fab fa-windows"></i>
+            </li>
+            <li class="kaart" data-value="google">
+                <i class="fab fa-google"></i>
+            </li>
+            <li class="kaart" data-value="wordpress">
+                <i class="fab fa-wordpress"></i>
+            </li>
+            <li class="kaart" data-value="linux">
+                <i class="fab fa-linux"></i>
+            </li>
+            <li class="kaart" data-value="wordpress">
+                <i class="fab fa-wordpress"></i>
+            </li>
+            <li class="kaart open show" data-value="apple">
+                <i class="fab fa-apple"></i>
+            </li>
+            <li class="kaart" data-value="windows">
+                <i class="fab fa-windows"></i>
+            </li>
+            <li class="kaart" data-value="dropbox">
+                <i class="fab fa-dropbox"></i>
+            </li>
+            <li class="kaart" data-value="drupal">
+                <i class="fab fa-drupal"></i>
+            </li>
+            <li class="kaart" data-value="android">
+                <i class="fab fa-android"></i>
+            </li>
+            <li class="kaart" data-value="android">
+                <i class="fab fa-android"></i>
+            </li>
+            <li class="kaart" data-value="tripadvisor">
+                <i class="fab fa-tripadvisor"></i>
+            </li>
+            <li class="kaart" data-value="tripadvisor">
+                <i class="fab fa-tripadvisor"></i>
+            </li>
+            <li class="kaart" data-value="steam">
+                <i class="fab fa-steam"></i>
+            </li>
+            <li class="kaart" data-value="steam">
+                <i class="fab fa-steam"></i>
+            </li>
+            <li class="kaart" data-value="spotify">
+                <i class="fab fa-spotify"></i>
+            </li>
+            <li class="kaart" data-value="spotify">
+                <i class="fab fa-spotify"></i>
+            </li>
+        </ul>
+
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Gefeliciteerd! 🎉</h2>
+
+                <div class="content-1">
+                    Gefeliciteerd! Je hebt gewonnen! 🎉🎉
+                </div>
+                <div class="content-2">
+                    <p>Je hebt <span id=laatsteStap> </span> stappen gezet </p>
+                    <p>in <span id=totaleTijd> </span> </p>
+                    <p>Beoordeling:  <span id=starRating></span></p>
+                </div>
+                <button id="opnieuw-spelen" onclick="opnieuwSpelen()">
+                    Opnieuw Spelen
+                </button>
+                <button id="hoofdMenu" onclick="window.location.href='index.html'">
+                    Keer terug naar hoofdmenu
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <script src="Moeilijk.js"></script>
+</body>
+</html>

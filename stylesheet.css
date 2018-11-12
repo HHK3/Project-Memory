@@ -1,0 +1,547 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: url("img/Space.jpg");
+  background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 16px;
+}
+
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+h1 {
+	font-family: 'Gloria Hallelujah', cursive;
+  color: white;
+	text-align: center;
+}
+h2 {
+	font-family: 'Gloria Hallelujah', cursive;
+  color: white;
+	text-align: center;
+}
+
+
+/*
+ * Stijl voor de kaarten
+ */
+
+
+.deck {
+	width: 85%;
+	background-color: rgba(255, 255, 255, 0.4);
+	padding: 1rem;
+	border-radius: 4px;
+	box-shadow: 8px 9px 26px 0 rgba(46, 61, 73, 0.5);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	margin: 0 0 3em;
+
+}
+
+.deck .kaart {
+	height: 3.7rem;
+	width: 3.7rem;
+	margin: 0.2rem 0.2rem;
+  background: black;
+  background-image: url("img/Mario.png");
+  background-size: cover;
+	font-size: 0;
+	color: #ffffff;
+	border-radius: 5px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .kaart.open {
+	transform: rotateY(0);
+	background: #02b3e4;
+	cursor: default;
+	animation-name: flipInY;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+}
+
+.deck .kaart.show {
+	font-size: 33px;
+}
+
+.deck .kaart.match {
+	cursor: default;
+	background: #7CFC00;
+	font-size: 33px;
+	animation-name: rubberBand;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+}
+
+.deck .kaart.unmatched {
+	animation-name: pulse;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+	background: #e2043b;
+}
+
+.deck .kaart.disabled {
+	pointer-events: none;
+	opacity: 0.9;
+}
+
+
+/*
+ * Stijl voor score paneel
+ */
+#no {
+	display: none;
+}
+
+.score-panel {
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.score-panel .sterren {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	margin: 0 5px 0 0;
+}
+
+.score-panel .sterren li {
+	list-style: none;
+	display: inline-block;
+}
+
+
+.score-panel .geluid {
+	float: right;
+	cursor: pointer;
+  color: white;
+}
+.score-panel .stop{
+	float: right;
+	margin-left: 20px;
+	cursor: pointer;
+  color: red;
+}
+
+.fa-star {
+	color: #FFD700;
+}
+.stap{
+  color: white;
+}
+.timer {
+	display: inline-block;
+	margin: 0 1rem;
+  color: white;
+}
+
+
+/*
+ * Stijl voor Felicitatie Modaal
+ */
+
+
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.overlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+
+.popup {
+	margin: 70px auto;
+	padding: 20px;
+	background: #ffffff;
+	border-radius: 5px;
+	width: 85%;
+	position: relative;
+	transition: all 0.2s ease-in-out;
+	font-family: 'Gloria Hallelujah', cursive;
+}
+
+.popup h2 {
+	margin-top: 0;
+	color: #333;
+	font-family: Tahoma, Arial, sans-serif;
+  text-align: center;
+}
+
+.popup .sluit {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	transition: all 50ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+
+.popup .sluit:hover {
+	color: #E5F720;
+}
+
+.popup .content-1,
+.content-2 {
+	max-height: 30%;
+	overflow: auto;
+	text-align: center;
+}
+
+.show {
+	visibility: visible !important;
+	opacity: 100 !important;
+}
+
+#starRating li {
+	display: inline-block;
+}
+
+#opnieuw-spelen {
+	background-color: #141214;
+	padding: 0.7rem 1rem;
+	font-size: 1.1rem;
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+	font-family: 'Gloria Hallelujah', cursive;
+	color: #ffffff;
+	border-radius: 5px;
+}
+#hoofdMenu {
+	background-color: #141214;
+	padding: 0.7rem 1rem;
+	font-size: 1.1rem;
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+	font-family: 'Gloria Hallelujah', cursive;
+	color: #ffffff;
+	border-radius: 5px;
+}
+
+/* Animaties */
+@keyframes flipInY {
+	from {
+		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+
+	40% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		animation-timing-function: ease-in;
+	}
+
+	60% {
+		transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		opacity: 1;
+	}
+
+	80% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+	}
+
+	to {
+		transform: perspective(400px);
+	}
+}
+
+@keyframes rubberBand {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, .95, 1);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes pulse {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	50% {
+		transform: scale3d(1.2, 1.2, 1.2);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+
+/****** Media queries
+***************************/
+
+
+@media (max-width: 420px) {
+	.deck {
+		width: 85%;
+	}
+
+	.deck .kaart {
+		height: 4.7rem;
+		width: 4.7rem;
+	}
+	.score-panel {
+		font-size: 14px;
+	}
+	h1 {
+		font-size: 20px;
+	}
+	#opnieuw-spelen {
+		width: 100%;
+		height:20%;
+	}
+	#hoofdMenu {
+		font-size: 13px;
+		width: 100%;
+		height:5%;
+	}
+	.geluid {
+		display: none;
+	}
+}
+
+@media (min-width: 421px){
+	#opnieuw-spelen {
+		width: 100%;
+		height:20%;
+	}
+	#hoofdMenu {
+		font-size: 13px;
+		width: 100%;
+		height:5%;
+	}
+	.deck {
+		width: 85%;
+	}
+
+	.deck .kaart {
+		height: 4.7rem;
+		width: 4.7rem;
+	}
+	h1 {
+		font-size: 22px;
+	}
+	.geluid {
+		display: none;
+	}
+}
+
+
+/* Tablets en grotere schermen
+****************/
+
+@media (min-width: 768px) and (max-width: 1200px) {
+	.container {
+		font-size: 19px;
+	}
+
+	.deck {
+		width: 600px;
+		height: 420px;
+	}
+
+	.deck .kaart {
+		height: 110px;
+		width: 125px;
+	}
+
+	.popup {
+		width: 60%;
+	}
+	h1 {
+		font-size: 30px;
+	}
+	.geluid {
+		display:inline;
+	}
+	.score-panel{
+		font-size: 16px;
+	}
+}
+@media (min-width: 1200px) and (max-width: 1600px) {
+	.container {
+		font-size: 22px;
+	}
+
+	.deck {
+		width: 900px;
+		height: 410px;
+	}
+
+	.deck .kaart {
+		height: 130px;
+		width: 130px;
+	}
+
+	h1{
+		font-size: 30px;
+	}
+
+	.popup {
+		width: 60%;
+	}
+	.geluid {
+		display:inline;
+	}
+	.score-panel{
+		font-size: 18px;
+	}
+}
+@media (min-width: 1600px) {
+	.container {
+		font-size: 22px;
+	}
+
+	.deck {
+		width: 600px;
+		height: 410px;
+	}
+
+	.deck .kaart {
+		height: 120px;
+		width: 130px;
+	}
+
+	h1{
+		font-size: 32px;
+	}
+
+	.popup {
+		width: 60%;
+	}
+	.geluid {
+		display:inline;
+	}
+	.score-panel{
+		font-size: 17px;
+	}
+}
+@media (height: 480px) {
+	.deck {
+		width: 95%;
+		height: 20%;
+	}
+
+	.deck .kaart {
+		height: 4.2rem;
+		width: 4.7rem;
+	}
+	.score-panel{
+		font-size: 14px;
+	}
+	h1 {
+		font-size: 15px;
+	}
+	#opnieuw-spelen {
+		width: 100%;
+		height:20%;
+	}
+	#hoofdMenu {
+		font-size: 13px;
+		width: 100%;
+		height:5%;
+	}
+	.geluid {
+		display:none;
+	}
+
+}
+
+@media (height: 568px) {
+	.deck {
+		width: 95%;
+		height: 40%;
+	}
+
+	.deck .kaart {
+		height: 4.7rem;
+		width: 4.7rem;
+	}
+	.score-panel{
+		font-size: 14px;
+	}
+	h1 {
+		font-size: 20px;
+	}
+	#opnieuw-spelen {
+		width: 100%;
+		height:20%;
+	}
+	#hoofdMenu {
+		font-size: 13px;
+		width: 100%;
+		height:5%;
+	}
+	.geluid {
+		display:none;
+	}
+
+}
